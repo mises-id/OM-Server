@@ -40,17 +40,18 @@ public class InitResponse {
             d = 1;
 
         this.api = new API();
-        this.api.wf = "https://" + req.getReqHost() + "/wf";
-        this.api.lr = "https://" + req.getReqHost() + "/lr";
-        this.api.hb = "https://" + req.getReqHost() + "/hb";
-        this.api.ic = "https://" + req.getReqHost() + "/ic";
-        this.api.iap = "https://" + req.getReqHost() + "/iap";
-        this.api.er = "https://" + req.getReqHost() + "/err";
-        this.api.cpcl = "https://" + req.getReqHost() + "/cp/cl";
-        this.api.cppl = "https://" + req.getReqHost() + "/cp/pl";
+        final String protocol = "http://";
+        this.api.wf = protocol + req.getReqHost() + "/wf";
+        this.api.lr = protocol + req.getReqHost() + "/lr";
+        this.api.hb = protocol + req.getReqHost() + "/hb";
+        this.api.ic = protocol + req.getReqHost() + "/ic";
+        this.api.iap = protocol + req.getReqHost() + "/iap";
+        this.api.er = protocol + req.getReqHost() + "/err";
+        this.api.cpcl = protocol + req.getReqHost() + "/cp/cl";
+        this.api.cppl = protocol + req.getReqHost() + "/cp/pl";
 
         events = new Events();
-        events.url = "https://" + req.getReqHost() + "/log";
+        events.url = protocol + req.getReqHost() + "/log";
         List<Integer> eids = pubApp.getEventIds();
         if (eids.isEmpty()) {
             events.ids = REQUIRED_EVENT_IDS;

@@ -121,8 +121,9 @@ public class CpCacheService extends PBLoader {
                 if (ct == null || CollectionUtils.isEmpty(ct.countryWhite)) {
                     ppccMap.computeIfAbsent(campaign.getPublisherId(), k -> new HashMap<>())
                             .computeIfAbsent(campaign.getPlatform(), k -> new HashMap<>())
-                            .computeIfAbsent("ALL", k -> new ArrayList<>())
+                            .computeIfAbsent(CountryCode.COUNTRY_ALL, k -> new ArrayList<>())
                             .add(cpCampaign);
+                    LOG.info("campaign loaded: {} {} {}", campaign.getId(), campaign.getPublisherId(), campaign.getPlatform());
                 } else {
                     for (String country : ct.countryWhite) {
                         ppccMap.computeIfAbsent(campaign.getPublisherId(), k -> new HashMap<>())
@@ -221,6 +222,7 @@ public class CpCacheService extends PBLoader {
         List<Campaign> allCpList = countryCampaigns.getOrDefault(CountryCode.COUNTRY_ALL, Collections.emptyList());
 
         if (countryCpList.isEmpty() && allCpList.isEmpty()) {
+            LOG.info("campaign not found: {} {} {}", pubId, country, plat);
             return Collections.emptyList();
         }
 

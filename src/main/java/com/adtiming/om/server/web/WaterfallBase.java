@@ -648,7 +648,7 @@ public class WaterfallBase extends BaseController {
                 bidreq.setHeader("Accept", "application/json");
             }
 
-            String reqData = buildBidReqData(o, isTest, placement, bidderToken).toJSONString();
+            final String reqData = buildBidReqData(o, isTest, placement, bidderToken).toJSONString();
             bidreq.setEntity(new StringEntity(reqData, ContentType.APPLICATION_JSON));
 
             if (DEBUG) {
@@ -670,7 +670,7 @@ public class WaterfallBase extends BaseController {
             lr.setAdnPk(bidderToken.pkey);
             lr.setAbt(o.getAbt());
             lr.setAbtId(o.getAbtId());
-//            lr.writeToLog(logService);
+            //lr.writeToLog(logService);
 
             HttpClientContext hcc = HttpClientContext.create();
             httpAsyncClient.execute(bidreq, hcc, new FutureCallback<HttpResponse>() {
@@ -696,7 +696,7 @@ public class WaterfallBase extends BaseController {
                                     err = hErr.getValue();
                                 }
                             }
-                            LOG.debug("pid: {}, adn {} nobid: {}, err: {}", o.getPid(), bidderToken.adn, sl, err);
+                            LOG.debug("pid: {}, adn: {} nobid: {}, err: {}, reqData: {}", o.getPid(), bidderToken.adn, sl, err, reqData);
                         }
                         if (entity != null) {
                             content = EntityUtils.toString(entity, UTF_8);
