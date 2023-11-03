@@ -47,7 +47,7 @@ public class AdBaseController extends BaseController {
      */
     private static final int[] ADTYPE_MATCH_REQUIRE = {
             0b00010, // Banner
-            0b11011, // Native
+            0b00011, // Native
             0b11111, // Video
             0b11111, // Interstitial
             0b00010, // Splash
