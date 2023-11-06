@@ -1,7 +1,7 @@
 app:
   env: prod
   dcenter: 1
-  dtask: replace_to_dtask_host
+  dtask:  ip-172-31-9-230.ec2.internal
 
 logging:
   config: classpath:log4j2-prod.xml

@@ -33,7 +33,8 @@ public class AppConfig {
     private String dtask;
 
     public boolean isDev() {
-        return env == Env.dev;
+        return false;
+        //return env == Env.dev;
     }
 
     public boolean isProd() {
