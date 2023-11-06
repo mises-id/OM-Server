@@ -40,7 +40,7 @@ public class InitResponse {
             d = 1;
 
         this.api = new API();
-        final String protocol = "http://";
+        final String protocol = "https://";
         this.api.wf = protocol + req.getReqHost() + "/wf";
         this.api.lr = protocol + req.getReqHost() + "/lr";
         this.api.hb = protocol + req.getReqHost() + "/hb";
