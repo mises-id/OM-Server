@@ -126,6 +126,10 @@ public class CampaignResp {
     public String getDescn() {
         return mcr.creative.getDescn();
     }
+    
+    public String getName() {
+        return mcr.creative.getName();
+    }
 
     // Image List
     public List<String> getImgs() {
